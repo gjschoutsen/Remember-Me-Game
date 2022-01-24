@@ -3,7 +3,6 @@ body {
 }
 
 #board {
-    background-color: rgb(110, 255, 224);
     height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -18,15 +17,15 @@ text-align: center;
 padding: 5rem
 }
 
-.tile2{
+.tile1{
     background:red;
 }
-.tile4{
+.tile2{
     background: blue;
 }
-.tile6{
+.tile3{
     background: green;
 }
-.tile8{
+.tile4{
     background: yellow
 }
