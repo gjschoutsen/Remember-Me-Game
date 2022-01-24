@@ -1,6 +1,4 @@
-body {
 
-}
 
 #board {
     height: 90vh;
@@ -17,15 +15,34 @@ text-align: center;
 padding: 5rem
 }
 
+.tile-start{
+    text-align: center;
+    font-size: 5rem;
+    margin-top:25%
+}
+
 .tile1{
-    background:red;
+    background:rgb(255, 147, 147);
 }
 .tile2{
-    background: blue;
+    background: rgb(151, 151, 255);
 }
 .tile3{
-    background: green;
+    background: rgb(158, 255, 158);
 }
 .tile4{
-    background: yellow
+    background: rgb(255, 255, 148)
+}
+
+.red {
+    background: red;
+}
+.blue {
+    background: blue;
+}
+.green {
+    background: green;
+}
+.yellow {
+    background: yellow;
 }
