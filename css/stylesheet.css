@@ -1,0 +1,32 @@
+body {
+
+}
+
+#board {
+    background-color: rgb(110, 255, 224);
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.tiles {
+
+color: black;
+font-size: 2rem;
+text-align: center;
+padding: 5rem
+}
+
+.tile2{
+    background:red;
+}
+.tile4{
+    background: blue;
+}
+.tile6{
+    background: green;
+}
+.tile8{
+    background: yellow
+}
