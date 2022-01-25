@@ -22,16 +22,16 @@ padding: 5rem
 }
 
 .tile1{
-    background:rgb(255, 147, 147);
+    background:rgb(252, 181, 181);
 }
 .tile2{
-    background: rgb(151, 151, 255);
+    background: rgb(178, 178, 252);
 }
 .tile3{
-    background: rgb(158, 255, 158);
+    background: rgb(181, 247, 181);
 }
 .tile4{
-    background: rgb(255, 255, 148)
+    background: rgb(255, 255, 185)
 }
 
 .red {
