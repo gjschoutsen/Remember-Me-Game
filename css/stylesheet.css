@@ -18,31 +18,53 @@ padding: 5rem
 .tile-start{
     text-align: center;
     font-size: 5rem;
-    margin-top:30%
 }
 
-.tile1{
+.tile-running{
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+    background: black;
+}
+
+.tileRed{
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
     background:rgb(252, 181, 181);
 }
-.tile2{
+.tileBlue{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
     background: rgb(178, 178, 252);
 }
-.tile3{
+.tileGreen{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
     background: rgb(181, 247, 181);
 }
-.tile4{
+.tileYellow{
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
     background: rgb(255, 255, 185)
 }
 
 .red {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
     background: red;
 }
 .blue {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
     background: blue;
 }
 .green {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
     background: green;
 }
 .yellow {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
     background: yellow;
 }

@@ -1,134 +1,170 @@
 class Game {
   constructor() {
-    this.tile1 = document.querySelector(".tile1");
-    this.tile2 = document.querySelector(".tile2");
-    this.tile3 = document.querySelector(".tile3");
-    this.tile4 = document.querySelector(".tile4");
+    this.tileRed = document.querySelector(".tileRed");
+    this.tileBlue = document.querySelector(".tileBlue");
+    this.tileGreen = document.querySelector(".tileGreen");
+    this.tileYellow = document.querySelector(".tileYellow");
     this.tileStart = document.querySelector(".tile-start");
-    this.flashCount = 3;
-    this.flashSpeed = 600;
-    this.flashOrder = [];
-    this.playerPatern = [];
-    this.playerIsDone = false;
+    this.computerPatternCount = 5;
+    this.computerPatternSpeed = 400;
+    this.computerPattern = [];
+    this.playerPattern = [];
   }
 
   startGame() {
     this.tileStart.addEventListener("click", (e) => {
       this.patternGenerator();
-
+      this.changeClass(this.tileStart, "tile-start", "tile-running")
+      this.tileStart.innerText = "Remember the pattern."
       console.log("clicked tile START");
-    });;
+    },{once:true});
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){
+      this.patternGenerator();
+      this.changeClass(this.tileStart, "tile-start", "tile-running")
+      this.tileStart.innerText = "Remember the pattern."
+      console.log("clicked tile START");
+    }},{once:true});
   }
 
-  flashTile(tileNr, removeClass, addClass) {
+  changeClass(tileNr, removeClass, addClass) {
     tileNr.classList.remove(removeClass);
     tileNr.classList.add(addClass);
   }
 
   patternGenerator() {
     // Generate random number array
-    for (let i = 0; i < this.flashCount; i++) {
-      this.flashOrder.push(Math.floor(Math.random() * 4) + 1);
-      this.flashOrder.push(0);
+    for (let i = 0; i < this.computerPatternCount; i++) {
+      this.computerPattern.push(Math.floor(Math.random() * 4) + 1);
+      this.computerPattern.push(0);
     }
-    console.log(this.flashOrder);
+    console.log(this.computerPattern);
 
     //Interval to slowly iterate trough the number array and change classes.
     let count = 0;
     let flashTimer = setInterval(() => {
-      if (this.flashOrder[count] === 1) {
-        this.flashTile(this.tile1, "tile1", "red");
+      if (this.computerPattern[count] === 1) {
+        this.changeClass(this.tileRed, "tileRed", "red");
       } else {
-        this.flashTile(this.tile1, "red", "tile1");
+        this.changeClass(this.tileRed, "red", "tileRed");
       }
 
-      if (this.flashOrder[count] === 2) {
-        this.flashTile(this.tile2, "tile2", "blue");
+      if (this.computerPattern[count] === 2) {
+        this.changeClass(this.tileBlue, "tileBlue", "blue");
       } else {
-        this.flashTile(this.tile2, "blue", "tile2");
+        this.changeClass(this.tileBlue, "blue", "tileBlue");
       }
 
-      if (this.flashOrder[count] === 3) {
-        this.flashTile(this.tile3, "tile3", "green");
+      if (this.computerPattern[count] === 3) {
+        this.changeClass(this.tileGreen, "tileGreen", "green");
       } else {
-        this.flashTile(this.tile3, "green", "tile3");
+        this.changeClass(this.tileGreen, "green", "tileGreen");
       }
 
-      if (this.flashOrder[count] === 4) {
-        this.flashTile(this.tile4, "tile4", "yellow");
+      if (this.computerPattern[count] === 4) {
+        this.changeClass(this.tileYellow, "tileYellow", "yellow");
       } else {
-        this.flashTile(this.tile4, "yellow", "tile4");
+        this.changeClass(this.tileYellow, "yellow", "tileYellow");
       }
 
-      if (count > this.flashOrder.length) {
+      if (count > this.computerPattern.length) {
         clearInterval(flashTimer);
         this.playerClick()
+        this.tileStart.innerText = "It's your turn!"
       }
       count++;
-    }, this.flashSpeed);
+    }, this.computerPatternSpeed);
     
-    console.log(this.playerPatern);
+    console.log(this.playerPattern);
+    console.log(count)
   }
 
   playerClick() {
-   
-    this.tile1.addEventListener("click", (e) => {
-      this.playerPatern.push(1);
-      this.playerPatern.push(0);
+   //mouse
+    this.tileRed.addEventListener("click", (e) => {
+      this.playerPattern.push(1);
+      this.playerPattern.push(0);
       this.winLoseStatus()
-      
       console.log("clicked tile 1");
     });
-    this.tile2.addEventListener("click", (e) => {
-      this.playerPatern.push(2);
-      this.playerPatern.push(0);
+    this.tileBlue.addEventListener("click", (e) => {
+      this.playerPattern.push(2);
+      this.playerPattern.push(0);
       this.winLoseStatus()
       console.log("clicked tile 2");
     });
-    this.tile3.addEventListener("click", (e) => {
-      this.playerPatern.push(3);
-      this.playerPatern.push(0);
+    this.tileGreen.addEventListener("click", (e) => {
+      this.playerPattern.push(3);
+      this.playerPattern.push(0);
       this.winLoseStatus()
       console.log("clicked tile 3");
     });
-    this.tile4.addEventListener("click", (e) => {
-      this.playerPatern.push(4);
-      this.playerPatern.push(0);
+    this.tileYellow.addEventListener("click", (e) => {
+      this.playerPattern.push(4);
+      this.playerPattern.push(0);
       this.winLoseStatus()
       console.log("clicked tile 4");
     });
 
-  }
-
-  startWinLose(){
-    if (this.computerIsDone){
-      this.winLoseStatus();
-    }
+    // arrow keys
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowUp"){
+      this.playerPattern.push(1);
+      this.playerPattern.push(0);
+      this.winLoseStatus()
+      console.log("clicked tile 1");
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowLeft"){
+      this.playerPattern.push(2);
+      this.playerPattern.push(0);
+      this.winLoseStatus()
+      console.log("clicked tile 2");
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowRight"){
+      this.playerPattern.push(3);
+      this.playerPattern.push(0);
+      this.winLoseStatus()
+      console.log("clicked tile 3");
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowDown"){
+      this.playerPattern.push(4);
+      this.playerPattern.push(0);
+      this.winLoseStatus()
+      console.log("clicked tile 4");
+      }
+    });
   }
 
   winLoseStatus() {
     if (
-      this.flashOrder.length === this.playerPatern.length
+      this.computerPattern.length === this.playerPattern.length
     ) {
       this.checkWinLose();
     }
   }
 
   checkWinLose() {
-    if (JSON.stringify(this.playerPatern) === JSON.stringify(this.flashOrder)) {
+    if (JSON.stringify(this.playerPattern) === JSON.stringify(this.computerPattern)) {
       alert("YOU WON, WELL DONE!!");
       location.reload();
     } else {
-      alert("OH NO, YOU LOST!");
-      location.reload;
+      alert("OH NO, YOU LOST! Try again");
+      location.reload();
     }
   }
 }
 
 // class Player {
-//   constructor(playerPatern) {
-//     this.playerPatern = playerPatern;
-//     console.log(this.playerPatern)
+//   constructor(playerPattern) {
+//     this.playerPattern = playerPattern;
+//     console.log(this.playerPattern)
 //   }
 // }
 
