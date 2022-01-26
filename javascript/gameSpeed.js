@@ -9,9 +9,11 @@ class Game {
       this.computerPatternSpeed = 1500;
       this.computerPattern = [];
       this.playerPattern = [];
+      
     }
   
     startGame() {
+      
       this.tileStart.addEventListener(
         "click",
         (e) => {
@@ -219,7 +221,14 @@ class Game {
         location.reload();
       }
     }
+
+    // gameover() {
+    
+    // }
+
   }
+
+ 
   
   const game = new Game();
   game.startGame();

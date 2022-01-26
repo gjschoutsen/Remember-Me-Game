@@ -19,8 +19,8 @@ class Game {
 
   startGame() {
     this.canUserPlay = false;
-    this.gamePage.style.display = "block";
-    this.gameOverPage.style.display = "none";
+    this.gamePage.style.display = "none";
+    this.gameOverPage.style.display = "block";
     this.tileStart.addEventListener(
       "click",
       (e) => {
@@ -199,5 +199,5 @@ const game = new Game();
 game.startGame();
 game.playerInput();
 
-let music = new Audio("../sound/bensound-hey.mp3");
-music.play();
+// let music = new Audio("../sound/bensound-hey.mp3");
+// music.play();
