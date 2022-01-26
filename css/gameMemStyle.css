@@ -1,37 +1,32 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 80px;
-    text-align: center;
-    align-items: center;
+    padding-top: 5%;
+    
+}
+
+.row{
+    display: flex;
+    justify-content: center;
 }
 
 .tile-start{
-    line-height: 200px;
-    position: absolute;
-    left: 250px;
-    top: 300px;
-    border-radius: 50%;
-    background: rgb(248, 175, 248);
-    width: 200px;
-    height: 200px;
-    text-align: center;
+    position: relative;
     font-size: 1.5rem;
-    display: inline-block;
-    overflow:hidden;
+    text-align: center;
+    width:200px;
+    height:200px;
+    color: white;
+    border-radius: 25%;
+    background: rgb(151, 152, 153);
+    overflow-wrap: break-word;
 }
-/* .text-circle {
-    transform: translate(-50%, -50%);
+.text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-} */
+    top: 50px;
+}
 
 .tile-running{
-    line-height: 200px;
     font-size:0.8rem;
-    position: absolute;
-    left: 250px;
-    top: 300px;
     width: 200px;
     height: 200px;
     text-align: center;
@@ -43,78 +38,61 @@ body {
 .tiles {
     width: 200px;
     height:200px;
-    margin: 10px;
-    padding: 0;
-    margin: 10px;
 }
 
 .tileRed{
-    position: absolute;
-    left: 250px;
-    border-radius: 100%;
+    margin-bottom: 10px;
+    border-radius: 50%;
     background:rgb(252, 181, 181);
 }
 .tileBlue{
-    position: absolute;
-    top: 300px;
-    border-radius: 100%;
-    
+    margin-right: 10px;
+    border-radius: 50%;   
     background: rgb(178, 178, 252);
 }
 .tileGreen{
-    position: absolute;
-    left: 470px;
-    top: 300px;
-    border-radius: 100%;
+    margin-left: 10px;
+    border-radius: 50%;
     background: rgb(181, 247, 181);
 }
 .tileYellow{
-    position: absolute;
-    top: 500px;
-    left: 250px;
-    border-radius: 100%;
+    margin-top: 10px;
+    border-radius: 50%;
     background: rgb(255, 255, 185)
 }
 
 .red {
-    position: absolute;
-    left: 250px;
-    border-radius: 100%;
+    margin-bottom: 10px;
+    border-radius: 50%;
     background: red;
 }
 .blue {
-    position: absolute;
-    top: 300px;
-    border-radius: 100%;
+    margin-right: 10px;
+    border-radius: 50%;
     background: blue;
 }
 .green {
-    position: absolute;
-    left: 470px;
-    top: 300px;
-    border-radius: 100%;
+    margin-left: 10px;
+    border-radius: 50%;
     background: green;
 }
 .yellow {
-    position: absolute;
-    top: 500px;
-    left: 250px;
-    border-radius: 100%;
+    margin-top: 10px;
+    border-radius: 50%;
     background: yellow;
 }
 
-.info {
-    background: coral;
-    width: 300px;
-    height: 200px;
-    text-align: center;
-    align-items:center;
+button {
+    width: 60px;
 }
 
-h2 {
-    left: 250px;
-    width: 100px;
-    padding: 20px
+.row1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    
 }
 
 #gameover {

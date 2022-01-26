@@ -10,38 +10,33 @@
 </head>
 
 <body>
-    <section id="game" class="container">
-        <div class="column">
+    <section id="game" class="section-main">
+        <div class="row">
             <div class="tiles tileRed"></div>
+        </div>
+        <div class="row">
+            <div class="tiles tileBlue"></div>
             <div class="tile-start">
-                <div class="text-circle">Click to START</div>
+                <div class="text">
+                    <p>Click to START</p>
+                </div>              
+                    
             </div>
+            <div class="tiles tileGreen"></div>
+        </div>    
+        <div class= "row">
             <div class="tiles tileYellow"></div>
         </div>
-        <div class="tiles tileBlue"></div>
-        <div class="tiles tileGreen"></div>
-
-        <div class="info">
+        <div class="info row1">
             <h2>Round: <span class="counter">1</span></h2>
             <button onclick="location.href= './index.html'">
                 Home</button>
         </div>
-
-        
     </section>
+
     <div id="gameover">
         <h1>Game Over!</h1>
     </div>
-
-    <!-- <div class="alert alertWon">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            Congratulations!<br> You won! 
-    </div>
-    <div class="alert alertLost">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            OH NO! You lost!<br> Try again!
-    </div> -->
-
     <script src="./javascript/gameMem.js"></script>
 </body>
 </body>
