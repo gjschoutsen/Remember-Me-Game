@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: rgb(190, 248, 248)
+}
+
+.container {
+    background: rgb(255, 229, 255);
+    position: absolute;
+    top: 40%;
+    width: 40vw;
+    height: 40vh;
+    border: 5px, solid, black;
+}
