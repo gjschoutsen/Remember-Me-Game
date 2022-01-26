@@ -14,7 +14,7 @@ class Game {
     this.playerPattern = [];
     this.canUserPlay = false;
     this.round = 1;
-    this.audio = new Audio('../sound/button-3.mp3')
+    this.audio = new Audio("../sound/button-3.mp3")
   }
 
   startGame() {
@@ -98,7 +98,7 @@ class Game {
     }
   }
 
-  flashOnClick(tileNr, addClass, removeClass){
+  flashAudioOnClick(tileNr, addClass, removeClass){
     if (this.canUserPlay) {
     tileNr.classList.remove(removeClass);
     tileNr.classList.add(addClass);
@@ -114,45 +114,45 @@ class Game {
     //mouse
     this.tileRed.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(1);
-      this.flashOnClick(this.tileRed, "red", "tileRed");
+      this.flashAudioOnClick(this.tileRed, "red", "tileRed");
       
     });
     this.tileBlue.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(2);
-      this.flashOnClick(this.tileBlue, "blue", "tileBlue");
+      this.flashAudioOnClick(this.tileBlue, "blue", "tileBlue");
     });
     this.tileGreen.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(3);
-      this.flashOnClick(this.tileGreen, "green", "tileGreen");
+      this.flashAudioOnClick(this.tileGreen, "green", "tileGreen");
     });
     this.tileYellow.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(4);
-      this.flashOnClick(this.tileYellow, "yellow", "tileYellow");
+      this.flashAudioOnClick(this.tileYellow, "yellow", "tileYellow");
     });
     // arrow keys
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowUp") {
         this.pushAndCheckPlayer(1);
-        console.log("up")
+        this.flashAudioOnClick(this.tileRed, "red", "tileRed");
       }
       console.log(e)
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") {
         this.pushAndCheckPlayer(2);
-        console.log("left")
+        this.flashAudioOnClick(this.tileBlue, "blue", "tileBlue");
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight") {
         this.pushAndCheckPlayer(3);
-        console.log("right")
+        this.flashAudioOnClick(this.tileGreen, "green", "tileGreen");
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowDown") {
         this.pushAndCheckPlayer(4);
-        console.log("down")
+        this.flashAudioOnClick(this.tileYellow, "yellow", "tileYellow");
       }
     });
   }
@@ -198,3 +198,6 @@ class Game {
 const game = new Game();
 game.startGame();
 game.playerInput();
+
+let music = new Audio("../sound/bensound-hey.mp3");
+music.play();
