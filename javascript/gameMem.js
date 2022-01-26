@@ -14,7 +14,7 @@ class Game {
     this.playerPattern = [];
     this.canUserPlay = false;
     this.round = 1;
-    this.audio = new Audio("../sound/button-3.mp3")
+    this.audio = new Audio("../sound/button-3.mp3") 
   }
 
   startGame() {

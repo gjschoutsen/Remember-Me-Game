@@ -18,7 +18,7 @@ body {
     color: white;
     border-radius: 25%;
     background: rgb(151, 152, 153);
-    overflow-wrap: break-word;
+    overflow-wrap: break-word; 
 }
 .text {
     position: absolute;
