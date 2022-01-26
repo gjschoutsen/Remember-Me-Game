@@ -5,13 +5,21 @@ class Game {
     this.tileGreen = document.querySelector(".tileGreen");
     this.tileYellow = document.querySelector(".tileYellow");
     this.tileStart = document.querySelector(".tile-start");
-    this.computerPatternCount = 5;
+    this.roundCount = document.querySelector(".counter");
+    this.gameOverPage = document.querySelector("#gameover");
+    this.gamePage = document.querySelector("#game");
+    this.computerPatternCount = 2;
     this.computerPatternSpeed = 400;
     this.computerPattern = [];
     this.playerPattern = [];
+    this.canUserPlay = false;
+    this.round = 1;
   }
 
   startGame() {
+    this.canUserPlay = false;
+    this.gamePage.style.display = "block"
+    this.gameOverPage.style.display = "none";
     this.tileStart.addEventListener(
       "click",
       (e) => {
@@ -79,41 +87,55 @@ class Game {
 
       if (count > this.computerPattern.length) {
         clearInterval(flashTimer);
-        this.playerInput();
         this.tileStart.innerText = "It's your turn!";
+        this.canUserPlay = true;
       }
       count++;
     }, this.computerPatternSpeed);
 
     console.log(this.playerPattern);
-    console.log(count);
+  }
+
+  pushAndCheckPlayerPattern(playerNum, zero){
+
   }
 
   playerInput() {
     //mouse
     this.tileRed.addEventListener("click", (e) => {
+      if(this.canUserPlay){
       this.playerPattern.push(1);
       this.playerPattern.push(0);
       this.checkPatternsLengthIsEqual();
-      console.log("clicked tile 1");
-    });
+      console.log("clicked tile 1")
+      } 
+    },);
+
     this.tileBlue.addEventListener("click", (e) => {
+      if(this.canUserPlay){
       this.playerPattern.push(2);
       this.playerPattern.push(0);
       this.checkPatternsLengthIsEqual();
-      console.log("clicked tile 2");
+      console.log("clicked tile 2")
+      }
     });
+
     this.tileGreen.addEventListener("click", (e) => {
+      if(this.canUserPlay){
       this.playerPattern.push(3);
       this.playerPattern.push(0);
       this.checkPatternsLengthIsEqual();
-      console.log("clicked tile 3");
+      console.log("clicked tile 3")
+      }
     });
+
     this.tileYellow.addEventListener("click", (e) => {
+      if(this.canUserPlay){
       this.playerPattern.push(4);
       this.playerPattern.push(0);
       this.checkPatternsLengthIsEqual();
-      console.log("clicked tile 4");
+      console.log("clicked tile 4")
+      }
     });
 
     // arrow keys
@@ -162,14 +184,33 @@ class Game {
       JSON.stringify(this.playerPattern) ===
       JSON.stringify(this.computerPattern)
     ) {
-      alert("YOU WON, WELL DONE!!");
-      location.reload();
+      console.log("first one", this.playerPattern)
+      this.round++
+      this.tileStart.innerText = `Good! Get ready for round: ${this.round}`
+      this.roundCount.innerText = this.round;
+      this.computerPattern = [];
+      this.playerPattern = [];
+      this.computerPatternCount += 1;
+      setTimeout(() => {
+        this.tileStart.innerText = "Click to Start";
+        this.startGame();        
+      }, 2000);
     } else {
-      alert("OH NO, YOU LOST! Try again");
-      location.reload();
+      this.gameOverPage.style.display = "block";
+      this.gamePage.style.display = "none";
+      this.computerPattern = [];
+      this.playerPattern = [];
+      this.computerPatternCount = 2;
+      this.round = 1;
+      this.roundCount.innerText = this.round;
+      setTimeout(() => {
+        this.tileStart.innerText = "Click to Start again"
+        this.startGame();
+      }, 3000);
     }
   }
 }
 
 const game = new Game();
 game.startGame();
+game.playerInput();

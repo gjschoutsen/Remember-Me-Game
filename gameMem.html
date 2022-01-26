@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +8,31 @@
     <title>Remember Me!</title>
     <link rel="stylesheet" href="./css/gameMemStyle.css">
 </head>
+
 <body>
-    <div class= "container">
-        <div class="column">    
-            <div class= "tiles tileRed" ></div>
-            <div class= "tile-start" >Click to START</div>
-            <div class= "tiles tileYellow" ></div>
-        </div>            
-            <div class= "tiles tileBlue" ></div> 
-            <div class= "tiles tileGreen" ></div> 
+    <section id="game" class="container">
+        <div class="column">
+            <div class="tiles tileRed"></div>
+            <div class="tile-start">
+                <div class="text-circle">Click to START</div>
+            </div>
+            <div class="tiles tileYellow"></div>
+        </div>
+        <div class="tiles tileBlue"></div>
+        <div class="tiles tileGreen"></div>
+
+        <div class="info">
+            <h2>Round: <span class="counter">1</span></h2>
+            <button onclick="location.href= './index.html'">
+                Home</button>
+        </div>
+
+        
+    </section>
+    <div id="gameover">
+        <h1>Game Over!</h1>
     </div>
-    <div>
-        <button onclick="location.href= './index.html'">
-            Home</button>
-    </div>
-    
+
     <!-- <div class="alert alertWon">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             Congratulations!<br> You won! 
@@ -34,4 +45,5 @@
     <script src="./javascript/gameMem.js"></script>
 </body>
 </body>
+
 </html>
