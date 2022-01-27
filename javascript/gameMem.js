@@ -29,22 +29,22 @@ class Game {
       (e) => {
         this.patternGenerator();
         this.tileStart.innerText = "Try to remember!";
-        console.log("clicked tile START");
+        console.log("clicked tile START1");
       },
       { once: true }
     );
 
-    document.addEventListener(
-      "keydown",
-      (e) => {
-        if (e.key === "Enter") {
-          this.patternGenerator();
-          this.tileStart.innerText = "Remember Me.";
-          console.log("clicked tile START");
-        }
-      },
-      { once: true }
-    );
+  //   document.addEventListener(
+  //     "keydown",
+  //     (e) => {
+  //       if (e.key === "Enter") {
+  //         this.patternGenerator();
+  //         this.tileStart.innerText = "Try to remember!";
+  //         console.log("clicked tile START2");
+  //       }
+  //     },
+  //     { once: true }
+  //   );
   }
 
   changeClass(tileNr, removeClass, addClass) {
@@ -205,5 +205,20 @@ const game = new Game();
 game.startGame();
 game.playerInput();
 
+let mute = document.querySelector(".mute-button");
+let music = new Audio("./sound/bensound-hey.mp3")
+music.volume = 0.1
+music.loop = true;
+music.play()
+function muteMusic(){
+  mute.addEventListener("click", (e) => {
+    if(music.paused){
+      music.play();
+    }else {
+      music.pause();
+    }
+    console.log("click")
+  })
+}
 
-//music.loop=true;
+muteMusic();

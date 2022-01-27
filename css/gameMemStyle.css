@@ -184,3 +184,8 @@ button {
   top:50px;
   width: 15%;
 }
+
+.mute-button img{
+  padding: 20px;
+  width: 70px;
+}
