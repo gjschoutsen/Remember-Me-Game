@@ -23,6 +23,7 @@ body {
 }
 
 .tile-start {
+  cursor: pointer;
   position: relative;
   z-index: 1;
   display: flex;
@@ -43,10 +44,12 @@ body {
 }
 
 .tiles {
+  cursor: pointer;
   width: 200px;
   height: 200px;
   border: 2px solid rgb(139, 139, 139);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
 }
 
 .tileRed {
