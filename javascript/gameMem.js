@@ -20,8 +20,8 @@ class Game {
 
   startGame() {
     this.canUserPlay = false;
-    this.gamePage.style.display = "block";
-    this.gameOverPage.style.display = "none";
+    this.gamePage.style.display = "none";
+    this.gameOverPage.style.display = "block";
     this.tileStart.addEventListener(
       "click",
       (e) => {
