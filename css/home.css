@@ -1,12 +1,20 @@
 body {
-    font-family:Arial;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background: rgb(190, 248, 248);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5%;
+    background: linear-gradient(-90deg, #fca191, #e1a0ff, #7dff9e, #eeff07);
+    background-size: 400% 400%;
+    animation: gradient 25s ease infinite;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
 }
 
 .container {

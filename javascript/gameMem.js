@@ -14,7 +14,7 @@ class Game {
     this.playerPattern = [];
     this.canUserPlay = false;
     this.round = 1;
-    this.audio = new Audio("../sound/button-3.mp3") 
+    this.audio = new Audio("./sound/button-3.mp3") 
   }
 
   startGame() {
@@ -198,5 +198,6 @@ const game = new Game();
 game.startGame();
 game.playerInput();
 
-let music = new Audio("../sound/bensound-hey.mp3");
+let music = new Audio("./sound/bensound-hey.mp3");
 music.play();
+//music.loop=true;
