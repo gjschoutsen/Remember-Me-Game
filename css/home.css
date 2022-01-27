@@ -1,7 +1,7 @@
 body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 50%;
+    padding-top: 20%;
     background: linear-gradient(-90deg, #fca191, #e1a0ff, #7dff9e, #eeff07);
     background-size: 400% 400%;
     animation: gradient 25s ease infinite;
