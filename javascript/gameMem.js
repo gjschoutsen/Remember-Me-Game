@@ -4,7 +4,7 @@ class Game {
     this.tileBlue = document.querySelector(".tileBlue");
     this.tileGreen = document.querySelector(".tileGreen");
     this.tileYellow = document.querySelector(".tileYellow");
-    this.tileStart = document.querySelector(".text p");
+    this.tileStart = document.querySelector(".tile-start");
     this.roundCount = document.querySelector(".counter");
     this.gameOverPage = document.querySelector("#gameover");
     this.gamePage = document.querySelector("#game");
@@ -98,7 +98,7 @@ class Game {
     }
   }
 
-  flashAudioOnClick(tileNr, addClass, removeClass){
+  addFlashAndAudio(tileNr, addClass, removeClass){
     if (this.canUserPlay) {
     tileNr.classList.remove(removeClass);
     tileNr.classList.add(addClass);
@@ -114,45 +114,44 @@ class Game {
     //mouse
     this.tileRed.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(1);
-      this.flashAudioOnClick(this.tileRed, "red", "tileRed");
+      this.addFlashAndAudio(this.tileRed, "red", "tileRed");
       
     });
     this.tileBlue.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(2);
-      this.flashAudioOnClick(this.tileBlue, "blue", "tileBlue");
+      this.addFlashAndAudio(this.tileBlue, "blue", "tileBlue");
     });
     this.tileGreen.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(3);
-      this.flashAudioOnClick(this.tileGreen, "green", "tileGreen");
+      this.addFlashAndAudio(this.tileGreen, "green", "tileGreen");
     });
     this.tileYellow.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(4);
-      this.flashAudioOnClick(this.tileYellow, "yellow", "tileYellow");
+      this.addFlashAndAudio(this.tileYellow, "yellow", "tileYellow");
     });
     // arrow keys
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowUp") {
         this.pushAndCheckPlayer(1);
-        this.flashAudioOnClick(this.tileRed, "red", "tileRed");
+        this.addFlashAndAudio(this.tileRed, "red", "tileRed");
       }
-      console.log(e)
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") {
         this.pushAndCheckPlayer(2);
-        this.flashAudioOnClick(this.tileBlue, "blue", "tileBlue");
+        this.addFlashAndAudio(this.tileBlue, "blue", "tileBlue");
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight") {
         this.pushAndCheckPlayer(3);
-        this.flashAudioOnClick(this.tileGreen, "green", "tileGreen");
+        this.addFlashAndAudio(this.tileGreen, "green", "tileGreen");
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowDown") {
         this.pushAndCheckPlayer(4);
-        this.flashAudioOnClick(this.tileYellow, "yellow", "tileYellow");
+        this.addFlashAndAudio(this.tileYellow, "yellow", "tileYellow");
       }
     });
   }
@@ -176,7 +175,7 @@ class Game {
       this.computerPattern = [];
       this.playerPattern = [];
       setTimeout(() => {
-        this.tileStart.innerText = "Click to Start";
+        this.tileStart.innerText = "Tap to Start";
         this.startGame();
       }, 2000);
     } else {
@@ -188,7 +187,7 @@ class Game {
       this.round = 1;
       this.roundCount.innerText = this.round;
       setTimeout(() => {
-        this.tileStart.innerText = "Click to Start again";
+        this.tileStart.innerText = "Tap to Start again";
         this.startGame();
       }, 3000);
     }
@@ -199,5 +198,5 @@ const game = new Game();
 game.startGame();
 game.playerInput();
 
-// let music = new Audio("../sound/bensound-hey.mp3");
-// music.play();
+let music = new Audio("../sound/bensound-hey.mp3");
+music.play();
