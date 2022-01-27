@@ -14,14 +14,16 @@ class Game {
     this.playerPattern = [];
     this.canUserPlay = false;
     this.round = 1;
-    this.audio = new Audio("./sound/button-3.mp3")
-    this.audio.volume = 0.2; 
+    this.noteA = new Audio("./sound/a3.mp3")
+    this.noteF = new Audio("./sound/f-3.mp3")
+    this.noteE = new Audio("./sound/e3.mp3")
+    this.noteG = new Audio("./sound/g3.mp3")
   }
 
   startGame() {
     this.canUserPlay = false;
-    this.gamePage.style.display = "none";
-    this.gameOverPage.style.display = "block";
+    this.gamePage.style.display = "block";
+    this.gameOverPage.style.display = "none";
     this.tileStart.addEventListener(
       "click",
       (e) => {
@@ -63,21 +65,25 @@ class Game {
     let flashTimer = setInterval(() => {
       if (this.computerPattern[count] === 1) {
         this.changeClass(this.tileRed, "tileRed", "red");
+        this.noteA.play()
       } else {
         this.changeClass(this.tileRed, "red", "tileRed");
       }
       if (this.computerPattern[count] === 2) {
         this.changeClass(this.tileBlue, "tileBlue", "blue");
+        this.noteE.play()
       } else {
         this.changeClass(this.tileBlue, "blue", "tileBlue");
       }
       if (this.computerPattern[count] === 3) {
         this.changeClass(this.tileGreen, "tileGreen", "green");
+        this.noteF.play()
       } else {
         this.changeClass(this.tileGreen, "green", "tileGreen");
       }
       if (this.computerPattern[count] === 4) {
         this.changeClass(this.tileYellow, "tileYellow", "yellow");
+        this.noteG.play()
       } else {
         this.changeClass(this.tileYellow, "yellow", "tileYellow");
       }
@@ -99,7 +105,7 @@ class Game {
     }
   }
 
-  addFlashAndAudio(tileNr, addClass, removeClass){
+  addFlashAndAudio(tileNr, addClass, removeClass,sound){
     if (this.canUserPlay) {
     tileNr.classList.remove(removeClass);
     tileNr.classList.add(addClass);
@@ -107,7 +113,7 @@ class Game {
     tileNr.classList.remove(addClass);
     tileNr.classList.add(removeClass);
     }, 200)
-    this.audio.play();
+    sound.play();
    }
   }
 
@@ -115,44 +121,44 @@ class Game {
     //mouse
     this.tileRed.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(1);
-      this.addFlashAndAudio(this.tileRed, "red", "tileRed");
+      this.addFlashAndAudio(this.tileRed, "red", "tileRed", this.noteA);
       
     });
     this.tileBlue.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(2);
-      this.addFlashAndAudio(this.tileBlue, "blue", "tileBlue");
+      this.addFlashAndAudio(this.tileBlue, "blue", "tileBlue", this.noteE);
     });
     this.tileGreen.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(3);
-      this.addFlashAndAudio(this.tileGreen, "green", "tileGreen");
+      this.addFlashAndAudio(this.tileGreen, "green", "tileGreen", this.noteF);
     });
     this.tileYellow.addEventListener("click", (e) => {
       this.pushAndCheckPlayer(4);
-      this.addFlashAndAudio(this.tileYellow, "yellow", "tileYellow");
+      this.addFlashAndAudio(this.tileYellow, "yellow", "tileYellow", this.noteG);
     });
     // arrow keys
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowUp") {
         this.pushAndCheckPlayer(1);
-        this.addFlashAndAudio(this.tileRed, "red", "tileRed");
+        this.addFlashAndAudio(this.tileRed, "red", "tileRed", this.noteA);
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") {
         this.pushAndCheckPlayer(2);
-        this.addFlashAndAudio(this.tileBlue, "blue", "tileBlue");
+        this.addFlashAndAudio(this.tileBlue, "blue", "tileBlue",this.noteE);
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight") {
         this.pushAndCheckPlayer(3);
-        this.addFlashAndAudio(this.tileGreen, "green", "tileGreen");
+        this.addFlashAndAudio(this.tileGreen, "green", "tileGreen",this.noteF);
       }
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowDown") {
         this.pushAndCheckPlayer(4);
-        this.addFlashAndAudio(this.tileYellow, "yellow", "tileYellow");
+        this.addFlashAndAudio(this.tileYellow, "yellow", "tileYellow", this.noteG);
       }
     });
   }
@@ -199,7 +205,5 @@ const game = new Game();
 game.startGame();
 game.playerInput();
 
-let music = new Audio("./sound/bensound-hey.mp3");
-music.play();
-music.volume = 0.1;
+
 //music.loop=true;

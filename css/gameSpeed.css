@@ -1,0 +1,95 @@
+body {
+    margin-top: 80px;
+    text-align: center;
+    align-items: center;
+}
+
+.tile-start{
+    line-height: 200px;
+    position: absolute;
+    left: 250px;
+    top: 300px;
+    border-radius: 100%;
+    background: rgb(248, 175, 248);
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.tile-running{
+    line-height: 200px;
+    font-size:1.5rem;
+    position: absolute;
+    left: 250px;
+    top: 300px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    border-radius: 100%;
+    color: white;
+    background: rgb(151, 152, 153);
+}
+
+.tiles {
+    width: 200px;
+    height:200px;
+    margin: 10px;
+    padding: 0;
+    margin: 10px;
+}
+
+.tileRed{
+    position: absolute;
+    left: 250px;
+    border-radius: 100%;
+    background:rgb(252, 181, 181);
+}
+.tileBlue{
+    position: absolute;
+    top: 300px;
+    border-radius: 100%;
+    
+    background: rgb(178, 178, 252);
+}
+.tileGreen{
+    position: absolute;
+    left: 470px;
+    top: 300px;
+    border-radius: 100%;
+    background: rgb(181, 247, 181);
+}
+.tileYellow{
+    position: absolute;
+    top: 500px;
+    left: 250px;
+    border-radius: 100%;
+    background: rgb(255, 255, 185)
+}
+
+.red {
+    position: absolute;
+    left: 250px;
+    border-radius: 100%;
+    background: red;
+}
+.blue {
+    position: absolute;
+    top: 300px;
+    border-radius: 100%;
+    background: blue;
+}
+.green {
+    position: absolute;
+    left: 470px;
+    top: 300px;
+    border-radius: 100%;
+    background: green;
+}
+.yellow {
+    position: absolute;
+    top: 500px;
+    left: 250px;
+    border-radius: 100%;
+    background: yellow;
+}
