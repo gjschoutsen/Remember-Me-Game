@@ -25,9 +25,9 @@ body {
 .tile-start {
   position: relative;
   display: inline-block;
-  font-size: 35px;
+  font-size: 25px;
   text-align: center;
-  line-height: 50px;
+  line-height: 25px;
   padding: 30px;
   padding-bottom: 0;
   width: 200px;
