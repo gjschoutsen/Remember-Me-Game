@@ -186,7 +186,7 @@ class Game {
         this.startGame();
       }, 2000);
     } else {
-      this.gameOverPage.style.display = "block";
+      this.gameOverPage.style.display = "flex";
       this.gamePage.style.display = "none";
       this.computerPatternCount = 2;
       this.computerPattern = [];
