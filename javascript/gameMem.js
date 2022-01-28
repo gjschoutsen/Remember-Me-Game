@@ -206,6 +206,8 @@ game.startGame();
 game.playerInput();
 
 let mute = document.querySelector(".mute-button");
+let img = document.getElementById("imgId");
+
 let music = new Audio("./sound/bensound-hey.mp3")
 music.volume = 0.1
 music.loop = true;
@@ -214,8 +216,10 @@ function muteMusic(){
   mute.addEventListener("click", (e) => {
     if(music.paused){
       music.play();
+      img.src="./images/speaker.png";
     }else {
       music.pause();
+      img.src="./images/speaker-muted.png";
     }
     console.log("click")
   })
